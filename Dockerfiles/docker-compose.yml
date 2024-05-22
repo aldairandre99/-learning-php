@@ -1,0 +1,25 @@
+version: '3.8'
+
+services:
+  app:
+    build:
+      context: ../
+      dockerfile: ./Dockerfiles/php/Dockerfile
+    container_name: learning-php
+    restart: always
+    working_dir: /var/www/learning-php
+    volumes:
+      - ../src:/var/www/learning-php
+  web:
+    image: nginx:latest
+    container_name: my-app-nginx
+    restart: always
+    working_dir: /var/www/learning-php
+    volumes:
+    - ../src:/var/www/learning-php
+    - ./nginx:/etc/nginx/conf.d
+    ports:
+     - "8080:80"
+    environment:
+     - NGINX_HOST=foobar.com
+     - NGINX_PORT=80

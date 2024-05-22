@@ -1,2 +1,7 @@
-# curso_de_php8
-Aprendendo PHP8 com João Ribeiro
+# RUN
+
+```
+cd learning-php/Dockerfile
+
+sudo docker-compose up 
+```
